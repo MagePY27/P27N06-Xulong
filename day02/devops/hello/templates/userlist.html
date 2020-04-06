@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block title %} userlist {% endblock %}
+
+{% block content %}
+
+<b><a href="/hello/useradd/">注册新用户</a></b>
+
+<table border="1">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>用户名</th>
+        <th>密码</th>
+        <th>性别</th>
+        <th>操作</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for user in us %}
+<!--    <div> {{forloop.counter}} {{user}} </div>-->
+        <tr>
+            <td>{{ user.id }}</td>
+            <td>{{ user.name }}</td>
+            <td>{{ user.password }}</td>
+            <td>{% if user.sex == 0 %} 男 {% elif user.sex == 1 %} 女 {% else %}未定义 {% endif %}</td>
+            <td>
+                <a href="/hello/usermodify/{{user.id}}"><input type="button" value='编辑'></a>
+                <a href="/hello/userdel/{{user.id}}"><input type="button" value='删除'></a>
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+    </table>
+
+{% endblock %}

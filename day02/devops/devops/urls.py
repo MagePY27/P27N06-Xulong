@@ -15,12 +15,15 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.http import HttpResponse
 # from hello import views
+def index(request):
+    return HttpResponse('<h1>欢迎使用本系统</h1>')
 
 urlpatterns = [
+    # path('', index),
     path('admin/', admin.site.urls),
     # path('hello/', views.index)  #主路由，不推荐
-    path('hello/', include('hello.urls')),  ##主路由加子路由，推荐
     path('', include('hello.urls')),  ##主路由加子路由，推荐
-
+    path('hello/', include('hello.urls')),  ##主路由加子路由，推荐
 ]

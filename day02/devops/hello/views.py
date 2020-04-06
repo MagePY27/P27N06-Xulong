@@ -9,8 +9,8 @@ def index(request):
 def list(request):
     # return HttpResponse('lisfffft')
     classname = "Devops"
-    books = ['python', 'java', 'Django']
-    user = {'name':'tom', 'age':18}
+    books = ['python', 'java', 'Django']   #列表
+    user = {'name':'tom', 'age':18}       #字典
     userlist = [
         {'username':'zhang3', 'name_cn':'张三', 'age':18},
         {'username': 'li4', 'name_cn': '李四', 'age': 20},
@@ -25,5 +25,11 @@ def list2(request):
         {'username': 'li4', 'name_cn': '李四', 'age': 20},
         {'username': 'wang5', 'name_cn': '王五', 'age': 25},
     ]
-    # return render(request, 'list2.html', {'users':users})
-    return render(request, 'userlist.html', {'users':users})
+    return render(request, 'list2.html', {'users':users})
+
+from .models import Users
+def userlist(request):
+    us = Users.objects.all()
+    print(us)
+    print(type(us))
+    return render(request, 'userlist.html', {'us': us})

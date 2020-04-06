@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <title>devops</title>
+
+</head>
+<body>
+<p style="background-color:yellow;text-align:center;">
+    {% block title %} base_title {% endblock %}
+</p>
+<content>
+<b><a href="/">返回首页</a></b>
+            <br>
+<b><a href="/hello/userlist/"><<返回用户界面</a></b>
+
+<br>
+{% block content %}
+{% endblock %}
+</content>
+
+<br>
+<a href="http://www.baidu.com/"><input type="button" value='百度'></a>
+<p style="background-color:green;text-align:center;">版权所有：
+    {% block ower %} 马哥教育-P27N06 {% endblock %}
+</p>
+</body>
+</html>

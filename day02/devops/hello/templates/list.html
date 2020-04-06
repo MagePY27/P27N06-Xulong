@@ -1,40 +1,28 @@
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/html">
-<!--<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">-->
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Devops</title>
+    <title>list</title>
 </head>
 <body>
-    <p>{{classname}}</p>
-
-    <p>{{content}} {{books.0}}</p>
-    <p>{{content}} {{books.1}}</p>
-    <p>{{content}} {{books.2}}</p>
-
-<div color = blue>hello my name is {{ user.name }} </br>
-my age is {{ user.age }}
-</div>
-
-
-{# if标签使⽤用，判断user是否存在 #}
-{% if user %}
-<p> name:{{ user.name }} </p>
-{%else%}
-⽤用户不不存在
-{% endif %}
-{# for循环标签，渲染books列列表 #}
-{% for book in books %}
-<li>{{ book }}</li>
-{% endfor %}
-</br>
-
-{# for循环输出列列表嵌套字典数据 #}
-{% for user in userlist %}
-<li>{{ user.username }}-->{{ user.age }}</li>
-{% endfor %}
-
-
-
+<h3>
+    {{classname}}
+    <br>
+    列表
+    {{books.0}}
+    {{books.1}}
+    {{books.2}}
+    <br>
+    字典
+    {{user.name}}
+    {{user.age}}
+    <br>
+    字典集
+    {% for user in userlist %}
+        {{user.username}}
+        {{user.name_cn}}
+        {{user.age}}
+    {% endfor %}
+</h3>
 </body>
 </html>
